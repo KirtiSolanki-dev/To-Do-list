@@ -9,56 +9,76 @@
 </head>
 
 <body>
-    <!-- dashboard 
-       header
-       statstics 
-       task input 
-       task list 
+   <!-- ==============================  -->
+    <!-- dashboard -->
+   <!-- ==============================  -->
+    <main class="dashboard">
 
-       so we have 4 sections  -->
+        
+         <!-- ==============================  -->
+        <!-- header content  -->
+         <!-- ==============================  -->
 
-    <div class="dashboard">
         <header class="header">
-
-            <!-- header content  -->
-
             <h1>Smart To-Do List</h1>
-            <p>Organize your day efficently</p>
-
+            <p>Organize your day efficiently</p>
         </header>
+
+
+
+        <!-- ==============================  -->
+        <!-- statstics -->
+         <!-- ==============================  -->
 
         <section class="stats">
 
-            <!-- statstics -->
-
             <div class="stat-card">
-                <h3>Total Task </h3>
-                <p class="count">0</p>
+                <h3>Total Tasks </h3>
+                <p id="total-tasks" class="count">0</p>
             </div>
+
             <div class="stat-card">
                 <h3>Pending </h3>
-                <p class="count">0</p>
+                <p id="pending-tasks" class="count">0</p>
             </div>
+
             <div class="stat-card">
                 <h3>Completed </h3>
-                <p class="count">0</p>
+                <p id="completed-tasks" class="count">0</p>
             </div>
+
         </section>
 
+        <!-- ==============================  -->
+        <!-- input content -->
+         <!-- ==============================  -->
 
         <section class="task-input">
 
-            <!-- input content -->
-            <input type="text" placeholder="Enter task here...">
-            <button>Add Task</button>
+            <input 
+                  type="text"
+                  id="task-input" 
+                  placeholder="Enter task here...">
+
+            <button id="add-task-btn">
+                Add Task
+            </button>
 
         </section>
+
+
+
+        <!-- ==============================  -->
+        <!-- tasks list section -->
+        <!-- ==============================  -->
 
         <section class="task-list">
 
             <h2>Tasks</h2>
 
-            <div class="task">
+            <div id="task-container"></div>
+
+            <!-- <div class="task">
                 <label class="task-content">
                     <input type="checkbox">
                     <span>JavaScript</span>
@@ -92,11 +112,11 @@
                     <button class="edit-btn">Edit</button>
                     <button class="delete-btn">Delete</button>
                 </div>
-            </div>
+            </div> -->
 
         </section>
 
-    </div>
+    </main>
 
 </body>
 

@@ -6,6 +6,10 @@
     font-family: sans-serif;
 }
 
+/* ============================== */
+/* body styling */
+/* ============================== */
+
 body{
     display: flex;
     justify-content: center;
@@ -13,6 +17,9 @@ body{
     align-items: flex-start; 
     
 }
+/* ============================== */
+/* dashboard styling  */
+ /* ============================== */
 
 .dashboard{
     background: white;
@@ -24,6 +31,10 @@ body{
     gap: 2rem; 
     margin-top: 0.3rem;
 }
+
+/* ============================== */
+/* header section styling  */
+/* ============================== */
 
 .header{
     text-align: center;
@@ -37,13 +48,16 @@ body{
     color: rgb(123, 112, 112);
 }
 
+/* ============================== */
+/* stats card styling  */
+/* ============================== */
+
 .stats{
    display: flex;
    gap: 1rem;
    width: 100%;
 
 }
-
 .stat-card{
     display: flex;
     flex-direction: column;
@@ -65,6 +79,10 @@ body{
     font-weight: 550;
  }
 
+ /* ============================== */
+ /* input area styling  */
+ /* ============================== */
+
  .task-input{
     display: flex;
     gap:1rem;
@@ -81,6 +99,15 @@ body{
     font-size: 1rem;
     transition: all 0.1s ease;
  }
+.task-input input:focus{  
+    background: #ececf9;
+    outline: none;
+}
+
+/* ============================== */
+/* add task button styling  */
+/* ============================== */
+
 .task-input button{
     padding: 1rem;
     border-radius: 0.5rem;
@@ -93,20 +120,25 @@ body{
     cursor: pointer;
 }
 
-.task-input input:focus{  
-    background: #ececf9;
-    outline: none;
-}
 
+
+.task-input button:hover{
+    background: rgb(45, 45, 220);
+}
 .task-input button:active{
     transform: scale(0.95) translateY(1px);
     background: rgb(6, 6, 165);
 }
 
+
+/* ============================== */
+/* task list styling  */
+/* ============================== */
+
 .task-list{
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    
 }
 .task{
     display: flex;
@@ -115,6 +147,10 @@ body{
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     border-radius: 0.5rem;
     font-size: 1.1rem;
+     transition: all 0.1s ease;
+}
+.task:hover{
+    transform: translateY(-2px);
 }
 .task-content{
     display: flex;
@@ -138,6 +174,17 @@ body{
 
     padding: 0.8rem;
 }
+
+#task-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+/* ============================== */
+/* task action button styling  */
+/* ============================== */
+
  .task-actions button{
     height: 2.3rem;
     border: none;
@@ -167,6 +214,11 @@ body{
  .delete-btn:active{
     background: rgb(240, 184, 184);
  }
+
+ 
+/* ============================== */
+/* media queries  */
+/* ============================== */
 
  @media (max-width:720px){
     .stats{
