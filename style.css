@@ -148,6 +148,7 @@ body{
     border-radius: 0.5rem;
     font-size: 1.1rem;
      transition: all 0.1s ease;
+      min-height: 60px;
 }
 .task:hover{
     transform: translateY(-2px);
@@ -214,6 +215,12 @@ body{
  .delete-btn:active{
     background: rgb(240, 184, 184);
  }
+
+ .task-content span[contenteditable="true"]{
+    outline: none;
+    border: none;
+    background: transparent;
+}
 
  
 /* ============================== */
