@@ -5,7 +5,7 @@ const totalTasks = document.getElementById("total-tasks");
 const pendingTasks = document.getElementById("pending-tasks");
 const completedTasks = document.getElementById("completed-tasks");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-console.log(tasks);
+const themeToggle = document.getElementById("theme-toggle");
 
 function createTask(taskText) {
     const task = document.createElement("div");
@@ -16,9 +16,14 @@ function createTask(taskText) {
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.checked = taskText.completed;
 
     const taskSpan = document.createElement("span");
-    taskSpan.textContent = taskText;
+    taskSpan.textContent = taskText.text;
+
+    if (taskText.completed) {
+        taskSpan.style.textDecoration = "line-through";
+    }
 
     taskContent.append(checkbox);
     taskContent.append(taskSpan);
@@ -29,7 +34,15 @@ function createTask(taskText) {
             taskSpan.style.textDecoration = "line-through";
         } else {
             taskSpan.style.textDecoration = "none";
+
         }
+        taskText.completed = checkbox.checked;
+
+        localStorage.setItem(
+            "tasks",
+            JSON.stringify(tasks)
+        );
+
         updateCounters()
 
     });
@@ -83,6 +96,13 @@ function createTask(taskText) {
 
             taskSpan.contentEditable = false;
             editBtn.textContent = "Edit";
+            taskText.text = taskSpan.textContent;
+
+            localStorage.setItem(
+                "tasks",
+                JSON.stringify(tasks)
+            );
+
             checkbox.disabled = false;
         }
 
@@ -116,14 +136,19 @@ addTaskBtn.addEventListener("click", () => {
 
     const taskText = taskInput.value;
 
-    tasks.push(taskText);
+    const newTask = {
+        text: taskText,
+        completed: false
+    };
+
+    tasks.push(newTask);
 
     localStorage.setItem(
         "tasks",
         JSON.stringify(tasks)
     );
 
-    createTask(taskText);
+    createTask(newTask);
 
     taskInput.value = "";
     updateCounters();
@@ -131,3 +156,28 @@ addTaskBtn.addEventListener("click", () => {
 
 });
 
+
+ const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️ Light Mode";
+}
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        themeToggle.textContent = "☀️ Light Mode";
+
+        localStorage.setItem("theme", "dark");
+
+    } else {
+
+        themeToggle.textContent = "🌙 Dark Mode";
+
+        localStorage.setItem("theme", "light");
+    }
+});
